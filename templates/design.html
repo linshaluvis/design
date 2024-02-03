@@ -246,6 +246,620 @@ h1.text-dark.display-6 {
         margin-top: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
+    main {
+        display: grid;
+        grid-template-columns: 28rem 2fr;
+        overflow: hidden;
+        height: calc(100vh - 6.5rem);
+        transition: 0.5s all ease-in-out;
+      }
+      .page-content {
+        grid-column: 2 / -1;
+        margin: 3rem;
+        overflow: hidden;
+      }
+      .page-content .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      page-content .header .info {
+        display: flex;
+        flex-direction: column;
+      }
+      .page-content .header .info p {
+        font-size: 1.5rem;
+        padding: 0.6rem;
+      }
+      
+      .page-content .header .info p:first-child {
+        color: #807f84;
+      }
+      .page-content .header .info p span {
+        color: #f279c8;
+        font-size: small;
+      }
+      .page-content .header .dropdown {
+        margin-left: auto;
+      }
+      button {
+        padding: 1.2rem 2rem;
+        font-size: 1.5rem;
+        border: none;
+      }
+      .dropbtn {
+        background: rgba(255, 0, 0, 0.6);
+        color: var(--white);
+        border-radius: 5rem;
+        text-transform: uppercase;
+      }
+      .dropbtn i {
+        margin-left: 1.2rem;
+        transition: 0.5s;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 16rem;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 1rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+      }
+      .dropdown-content a svg {
+        margin-right: 0.5rem;
+      }
+      
+      .dropdown .dropdown-content {
+        transition: 0.5s all ease-in-out;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+      }
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+      .dropdown .dropbtn {
+        transition: 0.5s all ease-in-out;
+      }
+      .dropdown:hover .dropbtn {
+        background-color: var(--red);
+      }
+      
+      .dropdown:hover .dropbtn i {
+        transform: rotate(-180deg);
+      }
+      .bg-pink {
+        background: var(--pink);
+        color: var(--white);
+      }
+      .bg-purple {
+        background: var(--purple);
+        color: var(--white);
+      }
+      .bg-cyan {
+        background: var(--cyan);
+        color: var(--white);
+      }
+      .bg-ash {
+        background: var(--ash);
+        color: var(--white);
+      }
+      .bg-deep-blue {
+        background: var(--deep-blue);
+        color: var(--white);
+      }
+      .bg-pale {
+        background: #eb4961;
+        color: var(--white);
+      }
+      
+      .page-content .board {
+        background: var(--white);
+        border-radius: 0.5rem;
+        max-height: 100%;
+        overflow: auto;
+        padding: 2rem;
+        margin-right: 3.5rem;
+        margin-left: 3.5rem;
+      }
+      .board > p {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .board{
+        max-width: 1200px;
+        margin-left: 10%;
+
+
+      }
+      .board .boxes {
+
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      .box {
+        padding: 1.5rem;
+        min-width: 15rem;
+        max-width: 20rem;
+
+        border-radius: 1rem;
+        margin-right: 2.5rem;
+        margin-left: 2.5rem;
+
+      }
+      .box p {
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+      .box .icon-value {
+        display: flex;
+        align-items: flex-end;
+        /* justify-content: flex-end; */
+      }
+      .box .icon-value .icon {
+        padding: 1rem;
+        font-size: 6rem;
+        margin-bottom: -2rem;
+      }
+      .box .icon-value .value {
+        font-size: 3rem;
+        margin-left: auto;
+      }
+      .create-client {
+        display: flex;
+        margin-top: 1rem;
+      }
+      .create-client button {
+        margin-left: auto;
+        background: #89c34a;
+        border-radius: 0.5rem;
+        color: var(--white);
+      }
+      .create-client button i {
+        margin-right: 0.5rem;
+      }
+      input,
+select,
+textarea {
+  width: 100%;
+  padding: 1.2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+  resize: vertical;
+}
+
+label {
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  display: block;
+  font-size: 1.4rem;
+}
+
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-element {
+    min-width: 20.5rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .main {
+    grid-template-columns: 4rem 2fr;
+  }
+:root {
+    box-sizing: border-box;
+    /* font-size: calc(1vw + 0.65rem); */
+    /* font-size: 65.8%; */
+    font-size: 0.625rem;
+    font-family: "Josefin Sans", sans-serif;
+    --sidebar-bgColor: #023059;
+    --sidebar-bgColor-hover: #683fbf;
+    --sidebar-txtColor: #dde9f8;
+    --sidebar-headingColor: #7889a4;
+    --page-content-bgColor: #f0f1f6;
+    --page-content-txtColor: #171616;
+    --page-content-blockColor: #fff;
+    --icon-color: #f29441;
+    --white: #fff;
+    --black: #333;
+    --blue: #00b9eb;
+    --red: #b1160e;
+    --pink: #f279c8;
+    --purple: #8a33fe;
+    --cyan: #5bb7ea;
+    --ash: #f6b166;
+    --deep-blue: #023059;
+  }
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    outline: none;
+  }
+  ul {
+    list-style: none;
+  }
+  a,
+  button {
+    color: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    background: none;
+  }
+  
+  body {
+    background-color: #f0f8fd;
+  }
+  
+  button:not(:disabled),
+  [type="button"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+  #myDashboardContainer {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+#myDashboardContainer .boxes {
+
+    display: flex;
+}
+
+.dashboard-widget {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.bar-chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Style for the bar chart bars */
+.bar {
+    background-color: #3498db;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.bar:nth-child(1) {
+    background-color: #3498db; /* Blue */
+}
+
+.bar:nth-child(2) {
+    background-color: #2ecc71; /* Green */
+}
+
+.bar:nth-child(3) {
+    background-color: #e74c3c; /* Red */
+}
+
+.bar:nth-child(4) {
+    background-color: #f39c12; /* Yellow/Orange */
+}
+  
+.bar-label {
+    color: #333;
+    margin-right: 10px;
+}
+.dashboard-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+}
+
+.dashboard-widget {
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.line-chart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.line-chart-point {
+    width: 15px;
+    height: 15px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.sales-target-widget {
+    text-align: center;
+}
+
+.sales-target {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2ecc71; /* Green color for positive target achievement */
+}
+
+.sales-target-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.gauge-chart {
+    width: 50%;
+    max-width: 100px;
+    margin: 20px auto;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+
+
+}
+
+.rowcontainer {
+    flex: 1;
+    background-color: #dee7ee;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    
+}
+.chartcontainer {
+    flex: 1;
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px; /* Add margin for better spacing */
+}
+.rowcontainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #de1212;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.left-heading,
+.right-heading {
+    margin: 0;
+}
+
+section {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+.card:hover {
+    background-color: #e44767; /* Change background color on hover */
+    color: #290404; /* Change text color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.rowcontainer:hover {
+    background-color: #509d50; /* Change background color on hover */
+    color: #2c0606; /* Change text color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.grid-container {
+    display: flex;
+}
+
+.grid-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+.barcontainer{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+
+}
+canvas {
+    max-width: 600px;
+    max-height: 500px;
+    height: 300px;
+}
+.progress-bar-container {
+    height: 15px;
+    width: 200px;
+    background-color: #ecf0f1;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%; /* Adjust the width to represent the progress (e.g., 50% for half-filled) */
+    background-color: #3498db; /* Change the color as needed */
+}
+.progress-segment {
+    height: 100%;
+    width: 20%; /* Adjust the width for each segment (e.g., 20% for five segments) */
+    float: left;
+}
+
+.progress-segment:nth-child(1) {
+    background-color: #3498db;
+    width: 30%; /* Color for the first segment */
+}
+
+.progress-segment:nth-child(2) {
+    background-color: #e74c3c;
+    width: 38%; /* Color for the second segment */
+}
+
+.progress-segment:nth-child(3) {
+    background-color: #2ecc71;
+    width: 3%; /* Color for the third segment */
+}
+.kanban-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: 10%;
+
+}
+
+.kanban-column {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.column-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.kanban-card {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.kanban-card:hover {
+    background-color: #2980b9;
+}
+
+.left-heading,
+.right-heading {
+    margin: 0;
+}
+
+.progress-bar-container {
+    height: 20px;
+    width: 100%;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-segment {
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+@media screen and (max-width: 768px) {
+    .kanban-column {
+        flex-basis: 100%;
+    }
+}
+
+
+
+  
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
     </style>
 </head>
 <body>
@@ -304,10 +918,23 @@ h1.text-dark.display-6 {
     <div class="container-fluid py-5 mb-5 hero-header">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
-                <div class="col-md-12 col-lg-7">
                     <h4 class="mb-3 text-secondary"></h4>
-                    <h1 class="mb-5 display-3 text-dark attractive-heading">Sales teams</h1>
-                    <h1 class="mb-5 display-3 text-dark attractive-heading">from good to great</h1>
+                    <div class="container-fluid banner  my-5">
+                        <div class="container py-5">
+                            <div class="row g-4 align-items-center">
+                                    <div class="py-4">
+                                        <h1 class="display-3 text-dark">Your Success, Our Priority</h1>
+                                        <p class="fw-normal display-3 text-dark mb-4">Empowering Workers, Enriching Lives.</p>
+                                        <p class="mb-4 text-dark">Connecting Skill with Opportunity, Building Futures Together..</p>
+                                        <a href="" class="banner-btn btn border-2 border-dark rounded-pill text-dark py-3 px-5">Starts Now</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
 
                     </div>
                 </div>
@@ -316,55 +943,792 @@ h1.text-dark.display-6 {
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+   
+    <div class="container">
         <div class="row">
-            <div class="col-md-3 column">
-                <div class="card" draggable="true">
-                    <div class="card-body">
-                        <h5 class="card-title">Card 1</h5>
-                        <p class="card-text">Some text for Card 1.</p>
+          <div class="col">
+            
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+    
+
+   
+            </section>
+            <section class="page-content">
+              <article class="header">
+               
+                <div class="dropdown">
+                  <button class="dropbtn">
+                    Actions <i class="fas fa-caret-up"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                          d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+                        />
+                      </svg>
+                      Send SMS
+                    </a>
+                    <a href="#">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <polyline points="3 7 12 13 21 7" />
+                      </svg>
+                      Send Email
+                    </a>
+                    <a href="#">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                          d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"
+                        />
+                        <polyline points="9 15 12 12 15 15" />
+                        <line x1="12" y1="12" x2="12" y2="21" />
+                      </svg>
+                      Export
+                    </a>
+                    <a href="#">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                          d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4"
+                        />
+                        <line x1="12" y1="13" x2="12" y2="22" />
+                        <polyline points="9 19 12 22 15 19" />
+                      </svg>
+                      Import
+                    </a>
+                  </div>
+                </div>
+              </article>
+              
+              <div id="myDashboardContainer">
+                <section class="boxes">
+                  <div class="box bg-pink">
+                    <p>All customers</p>
+                    <div class="icon-value">
+                      <div class="icon">
+                        <i class="fas fa-users"></i>
+                      </div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+                  <div class="box bg-purple">
+                    <p>No of transactions</p>
+                    <div class="icon-value">
+                      <div class="icon">
+                        <i class="fas fa-exchange-alt"></i>
+                      </div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+                  <div class="box bg-cyan">
+                    <p>Current/Ongoing</p>
+                    <div class="icon-value">
+                      <div class="icon"><i class="fab fa-forumbee"></i></div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+                  <div class="box bg-ash">
+                    <p>post sales</p>
+                    <div class="icon-value">
+                      <div class="icon">
+                        <i class="fas fa-chart-pie"></i>
+                      </div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+                  <div class="box bg-pale">
+                    <p>Passive transactions</p>
+                    <div class="icon-value">
+                      <div class="icon">
+                        <i class="fas fa-users"></i>
+                      </div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+    
+                  <div class="box bg-deep-blue">
+                    <p>Incoming sales</p>
+                    <div class="icon-value">
+                      <div class="icon">
+                        <i class="fas fa-cart-arrow-down"></i>
+                      </div>
+                      <p class="value">0</p>
+                    </div>
+                  </div>
+    
+                  
+                  
+                </section>
+                <section class="create-client">
+                  <button><i class="fas fa-plus"></i>Create client</button>
+                </section>
+                <form action="" class="form">
+                  <div class="form-element">
+                    <label for="start_date">Start date</label>
+                    <input type="date" name="start_date" id="start_date" />
+                  </div>
+                  <div class="form-element">
+                    <label for="end_date">End date</label>
+                    <input type="date" name="end_date" id="end_date" />
+                  </div>
+                  <div class="form-element">
+                    <label for="status">Select status</label>
+                    <select name="status" id="status">
+                      <option value="" disabled>All clients</option>
+                      <option value="">Status 1</option>
+                      <option value="">Status 2</option>
+                    </select>
+                  </div>
+                  <div class="form-element">
+                    <label for="items">Item</label>
+                    <select name="items" id="items">
+                      <option value="" disabled>Select an item</option>
+                      <option value="">Item 1</option>
+                      <option value="">Item 2</option>
+                    </select>
+                  </div>
+    
+                  <div class="form-element">
+                    <label for="country">Country</label>
+                    <select name="country" id="country">
+                      <option value="" disabled>Select country</option>
+                      <option value="">Status 1</option>
+                      <option value="">Status 2</option>
+                    </select>
+                  </div>
+                  <div class="form-element">
+                    <label for="state">State</label>
+                    <select name="state" id="state">
+                      <option value="" disabled>Select state</option>
+                      <option value="">Item 1</option>
+                      <option value="">Item 2</option>
+                    </select>
+                  </div>
+                  <div class="form-element">
+                    <label for="marketer">Marketer</label>
+                    <select name="marketer" id="marketer">
+                      <option value="" disabled>Select marketer</option>
+                      <option value="">Item 1</option>
+                      <option value="">Item 2</option>
+                    </select>
+                  </div>
+                  <div class="form-element">
+                    <label for="branch">Branch</label>
+                    <select name="branch" id="branch">
+                      <option value="" disabled>Select branch</option>
+                      <option value="">Item 1</option>
+                      <option value="">Item 2</option>
+                    </select>
+                  </div>
+                </form>
+              </article>
+            </section>
+          </main>
+        </div>
+        <div class="container mt-8">
+            <div class="row">
+                
+                <div class="col-md-3 column">
+                    <div class="card border-dark mb-3" draggable="true">
+                        <div class="card-body">
+                            <h5 class="card-title">barChart</h5>
+                            <h5 class="card-title">.</h5>
+                            <h5 class="card-title">.</h5>
+                            <h5 class="card-title">.</h5>
+
+
+
+                            <canvas id="barChart"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
+    
+                <div class="col-md-3 column ">
+                    <div class="card   border-success mb-3" draggable="true">
+                        <div class="card-body">
+                            <h5 class="card-title">lineChart</h5>
+                            <h5 class="card-title">.</h5>
+                            <h5 class="card-title">.</h5>
+                            <h5 class="card-title">.</h5>
 
-            <div class="col-md-3 column ">
-                <div class="card" draggable="true">
-                    <div class="card-body">
-                        <h5 class="card-title">Card 2</h5>
-                        <p class="card-text">Some text for Card 2.</p>
+
+
+                            <canvas id="lineChart"></canvas>
+    
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-3 column">
-                <div class="card"  draggable="true">
-                    <div class="card-body">
-                        <h5 class="card-title">Card 3</h5>
-                        <p class="card-text">Some text for Card 3.</p>
+    
+                <div class="col-md-3 column">
+                    <div class="card border-danger mb-3"  draggable="true">
+                        <div class="card-body">
+                            <h5 class="card-title">pieChart</h5>
+                            <canvas id="pieChart"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-3 column">
-                <div class="card" draggable="true">
-                    <div class="card-body">
-                        <h5 class="card-title">Card 4</h5>
-                        <p class="card-text">Some text for Card 4.</p>
+    
+                <div class="col-md-3 column">
+                    <div class="card border-primary mb-3" draggable="true">
+                        <div class="card-body">
+                            <h5 class="card-title">radarChart </h5>
+                            <canvas id="radarChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
 
-   
+        <div class="barcontainer">
+            <div class="grid-item">
+                <div class="dashboard-widget">
+                <h2 class="widget-title">Sales Target</h2>
+                <div class="sales-target-widget">
+                    <div class="sales-target">$150,000</div>
+                    
+                </div>
+    
+                <h2 class="widget-title">Achived Sales Target</h2>
+                <div class="sales-target-widget">
+                    <div class="sales-target">$90000</div>
+                    
+                </div>
+                <canvas id="salesBarChart" width="10px" height="10px"></canvas>
+    </div>
+            </div></div>
+       
+        <div id="myDashboardContainer">
+           
+            <div class="dashboard-container">
+                <div class="dashboard-widget">
+                    <h2 class="widget-title">Sales Performance</h2>
+                    <a href="#" title="Sales performance">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Sales performance</span>
+                    </a>
+                    <div class="chart-container">
+                        <canvas id="line2Chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div></div></div>
+       
+           <div class="dashboard-container">
+                <div class="dashboard-widget">
+                <h2 class="widget-title"> <a href="#" title="Activity report">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Activity report</span>
+                  </a></h2>
+                
+                <!-- Bar Chart Example -->
+                <div class="bar-chart">
+                    <div class="bar" style="width: 80%;">
+                        <span class="bar-label">Value:</span>
+                        <span>80%</span>
+                    </div>                    
+                    <div class="bar" style="width: 60%;">
+                        <span class="bar-label">Value:</span>
+                        <span>60%</span>
+                    </div>
+                    <!-- Bar 3 -->
+                <div class="bar" style="width: 40%;">
+                    <span class="bar-label">Value:</span>
+                    <span>40%</span>
+                </div>
+
+                <!-- Bar 4 -->
+                <div class="bar" style="width: 20%;">
+                    <span class="bar-label">Value:</span>
+                    <span>20%</span>
+                </div>
+            </div>
+        </div>
+       </div>>
+           
+        
+            
+        </div>
+
+        <!-- Add more widgets as needed -->
+    </div>
+    <div class="barcontainer">
+    <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--        
+    <div class="kanban-board">
+            
+        <div class="kanban-column">
+            <header>
+                    <h2 class="left-heading">new</h2>
+                    
+                    <h2 class="right-heading"><button>+</button></h2>
+                    
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div>
+                <section>
+                    <div class="card">Card 1</div>
+                    <div class="card">Card 2</div>
+                    <div class="card">Card 3</div>
+                </section>
+            </div>
+            <div class="kanban-column">
+                <header>
+                    <h2 class="left-heading">Qualified</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div>
+                <section>
+                    <div class="card">Card 1</div>
+                    <div class="card">Card 2</div>
+                    <div class="card">Card 3</div>
+                </section>
+            </div>
+            <div class="kanban-column">
+                <header>
+                    <h2 class="left-heading">Proposition</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div>
+                <section>
+                    <div class="card" draggable="true">Card 1</div>
+                    <div class="card" draggable="true">Card 2</div>
+                    <div class="card" draggable="true">Card 3</div>
+                </section>
+            </div>
+            <div class="kanban-column">
+                <header>
+                <h2 class="left-heading">won</h2>
+                <h2 class="right-heading"><button>+</button></h2>
+            </header>
+            <div class="progress-bar-container">
+                <div class="progress-segment"></div>
+                <div class="progress-segment"></div>
+                <div class="progress-segment"></div>
+                <div class="progress-segment"></div>
+                <div class="progress-segment"></div>
+            </div>
+            
+            <section>
+                <div class="card" draggable="true">Card 1</div>
+                <div class="card" draggable="true">Card 2</div>
+                <div class="card" draggable="true">Card 3</div>
+            </section>
+        </div>
+               
+            </div>
+        </div> -->
+
+        
+        <div class="kanban-board">
+            <div class="kanban-column">
+                <div class="column-header"> <header>
+                    <h2 class="left-heading">new</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+            </div>
+        
+            <div class="kanban-column">
+                <div class="column-header"><div class="column-header"> <header>
+                    <h2 class="left-heading">Qualified</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div></div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+            </div>
+            <div class="kanban-column">
+                <div class="column-header"><div class="column-header"> <header>
+                    <h2 class="left-heading">Proposition</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div></div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+            </div>
+        
+            <div class="kanban-column">
+                <div class="column-header"><div class="column-header"> <header>
+                    <h2 class="left-heading">won</h2>
+                    <h2 class="right-heading"><button>+</button></h2>
+                </header>
+                <div class="progress-bar-container">
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                    <div class="progress-segment"></div>
+                </div></div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+                <div class="kanban-card"><div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div></div>
+            </div>
+        </div>
+
+     
       
      <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx1 = document.getElementById('line2Chart').getContext('2d');
+    
+        const lineChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Point 1', 'Point 2', 'Point 3', 'Point 4', 'Point 5'],
+                datasets: [{
+                    label: 'Sales Performance',
+                    data: [30, 40, 60, 80, 80],
+                    borderColor: '#3498db',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'category',
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Sales'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        // Data for the bar chart
+        const barChartData = {
+            labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
+            datasets: [{
+                label: 'Bar Chart',
+                data: [10, 25, 15, 30, 20],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+    
+        // Data for the line chart
+        const lineChartData = {
+            labels: ['Point 1', 'Point 2', 'Point 3', 'Point 4', 'Point 5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [5, 10, 15, 20, 25],
+                fill: false,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2
+            }]
+        };
+    
+        // Data for the pie chart
+        const pieChartData = {
+            labels: ['Slice 1', 'Slice 2', 'Slice 3'],
+            datasets: [{
+                data: [30, 40, 30],
+                backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(75, 192, 192, 0.8)', 'rgba(255, 205, 86, 0.8)'],
+                borderColor: ['#fff', '#fff', '#fff'],
+                borderWidth: 1
+            }]
+        };
+    
+         // Data for the radar chart
+    const radarChartData = {
+        labels: ['Category A', 'Category B', 'Category C', 'Category D', 'Category E'],
+        datasets: [{
+            label: 'Radar Chart',
+            data: [10, 25, 15, 30, 20],
+            backgroundColor: 'rgba(255, 205, 86, 0.5)',
+            borderColor: 'rgba(255, 205, 86, 1)',
+            borderWidth: 1
+        }]
+    };
+        // Bar chart
+        const barChartCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barChartCtx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    
+        // Line chart
+        const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineChartCtx, {
+            type: 'line',
+            data: lineChartData,
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+         // Radar chart
+    const radarChartCtx = document.getElementById('radarChart').getContext('2d');
+    new Chart(radarChartCtx, {
+        type: 'radar',
+        data: radarChartData,
+        options: {
+            responsive: true,
+            scales: {
+                r: {
+                    grid: {
+                        color: 'rgba(255, 99, 132, 0.2)'
+                    },
+                    pointLabels: {
+                        fontColor: '#333'
+                    }
+                }
+            }
+        }
+    });
+
+    
+        // Pie chart
+        const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieChartCtx, {
+            type: 'pie',
+            data: pieChartData,
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+    <script>
+        const salesTarget = 150000;
+        const achievedSales = 120000;
+    
+        const remainingSales = salesTarget - achievedSales;
+        const salesPercentage = (achievedSales / salesTarget) * 100;
+    
+        const ctx = document.getElementById('salesBarChart').getContext('2d');
+    
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Achieved', 'Remaining'],  // Correctly define labels
+                datasets: [{
+                    data: [salesPercentage, 100 - salesPercentage],
+                    backgroundColor: ['#3498db', '#ecf0f1'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
+            }
+        });
+    </script>
 
       
       <script>
+        
         const cards = document.querySelectorAll('.card');
       
         cards.forEach(card => {
