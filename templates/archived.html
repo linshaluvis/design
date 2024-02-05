@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@ 1.16.1/dist/umd/popper.min.js"></script>
+     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            margin-top: 200px;
+
+
+        }
+        
+
+/*** Button Start ***/
+.btn {
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-sm-square {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-md-square {
+    width: 44px;
+    height: 44px;
+}
+
+.btn-lg-square {
+    width: 56px;
+    height: 56px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn.border-secondary {
+    transition: 0.5s;
+}
+
+.btn.border-secondary:hover {
+    background: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+}
+
+/*** Topbar Start ***/
+.fixed-top {
+    transition: 0.5s;
+    background: var(--bs-white);
+    border: 0;
+}
+
+.topbar {
+    padding: 20px;
+    border-radius: 230px 100px;
+}
+
+.topbar .top-info {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link a {
+    letter-spacing: 1px;
+}
+
+.topbar .top-link a small:hover {
+    color: var(--bs-secondary) !important;
+    transition: 0.5s;
+}
+
+.topbar .top-link a small:hover i {
+    color: var(--bs-primary) !important;
+}
+/*** Topbar End ***/
+
+/*** Navbar Start ***/
+.navbar .navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.navbar {
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        transition: .5s;
+        opacity: 0;
+    }
+}
+
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-primary);
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    background: var(--bs-light) !important;
+    border-radius: 10px !important;
+    transition: .5s;
+    opacity: 1;
+}
+
+#searchModal .modal-content {
+    background: rgba(255, 255, 255, .8);
+}
+/*** Navbar End ***/
+.pipeline {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em;
+}
+
+.stage {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 1em;
+    width: 300px;
+}
+
+.opportunity-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 1em 0;
+    cursor: grab;
+}
+.icon-container {
+    margin-right: 30px; /* Adjust the value to control the spacing */
+    margin-left: 30px; /* Adjust the value to control the spacing */
+
+}
+.icon-spacing {
+    padding-right: 20px; /* Adjust the value to control the padding */
+}
+.btn-search {
+    margin-right: 20px; /* Adjust the value to control the gap */
+}
+
+
+
+  .card {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  .kanban {
+    display: flex;
+    overflow-x: auto;
+    padding: 1em;
+}
+h1.text-dark.display-6 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+    .attractive-heading {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-align: left;
+        letter-spacing: 2px;
+    }
+
+    /* Adding a subtle shadow for a lifted effect */
+    .attractive-heading::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        margin-top: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    main {
+        display: grid;
+        grid-template-columns: 28rem 2fr;
+        overflow: hidden;
+        height: calc(100vh - 6.5rem);
+        transition: 0.5s all ease-in-out;
+      }
+      .page-content {
+        grid-column: 2 / -1;
+        margin: 3rem;
+        overflow: hidden;
+      }
+      .page-content .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      page-content .header .info {
+        display: flex;
+        flex-direction: column;
+      }
+      .page-content .header .info p {
+        font-size: 1.5rem;
+        padding: 0.6rem;
+      }
+      
+      .page-content .header .info p:first-child {
+        color: #807f84;
+      }
+      .page-content .header .info p span {
+        color: #f279c8;
+        font-size: small;
+      }
+      .page-content .header .dropdown {
+        margin-left: auto;
+      }
+      button {
+        padding: 1.2rem 2rem;
+        font-size: 1.5rem;
+        border: none;
+      }
+      .dropbtn {
+        background: rgba(255, 0, 0, 0.6);
+        color: var(--white);
+        border-radius: 5rem;
+        text-transform: uppercase;
+      }
+      .dropbtn i {
+        margin-left: 1.2rem;
+        transition: 0.5s;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 16rem;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 1rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+      }
+      .dropdown-content a svg {
+        margin-right: 0.5rem;
+      }
+      
+      .dropdown .dropdown-content {
+        transition: 0.5s all ease-in-out;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+      }
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+      .dropdown .dropbtn {
+        transition: 0.5s all ease-in-out;
+      }
+      .dropdown:hover .dropbtn {
+        background-color: var(--red);
+      }
+      
+      .dropdown:hover .dropbtn i {
+        transform: rotate(-180deg);
+      }
+      .bg-pink {
+        background: var(--pink);
+        color: var(--white);
+      }
+      .bg-purple {
+        background: var(--purple);
+        color: var(--white);
+      }
+      .bg-cyan {
+        background: var(--cyan);
+        color: var(--white);
+      }
+      .bg-ash {
+        background: var(--ash);
+        color: var(--white);
+      }
+      .bg-deep-blue {
+        background: var(--deep-blue);
+        color: var(--white);
+      }
+      .bg-pale {
+        background: #eb4961;
+        color: var(--white);
+      }
+      
+      .page-content .board {
+        background: var(--white);
+        border-radius: 0.5rem;
+        max-height: 100%;
+        overflow: auto;
+        padding: 2rem;
+        margin-right: 3.5rem;
+        margin-left: 3.5rem;
+      }
+      .board > p {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .board{
+        max-width: 1200px;
+        margin-left: 10%;
+
+
+      }
+      .board .boxes {
+
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      .box {
+        padding: 1.5rem;
+        min-width: 15rem;
+        max-width: 20rem;
+
+        border-radius: 1rem;
+        margin-right: 2.5rem;
+        margin-left: 2.5rem;
+
+      }
+      .box p {
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+      .box .icon-value {
+        display: flex;
+        align-items: flex-end;
+        /* justify-content: flex-end; */
+      }
+      .box .icon-value .icon {
+        padding: 1rem;
+        font-size: 6rem;
+        margin-bottom: -2rem;
+      }
+      .box .icon-value .value {
+        font-size: 3rem;
+        margin-left: auto;
+      }
+      .create-client {
+        display: flex;
+        margin-top: 1rem;
+      }
+      .create-client button {
+        margin-left: auto;
+        background: #89c34a;
+        border-radius: 0.5rem;
+        color: var(--white);
+      }
+      .create-client button i {
+        margin-right: 0.5rem;
+      }
+      input,
+select,
+textarea {
+  width: 100%;
+  padding: 1.2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+  resize: vertical;
+}
+
+label {
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  display: block;
+  font-size: 1.4rem;
+}
+
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-element {
+    min-width: 20.5rem;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .main {
+    grid-template-columns: 4rem 2fr;
+  }
+:root {
+    box-sizing: border-box;
+    /* font-size: calc(1vw + 0.65rem); */
+    /* font-size: 65.8%; */
+    font-size: 0.625rem;
+    font-family: "Josefin Sans", sans-serif;
+    --sidebar-bgColor: #023059;
+    --sidebar-bgColor-hover: #683fbf;
+    --sidebar-txtColor: #dde9f8;
+    --sidebar-headingColor: #7889a4;
+    --page-content-bgColor: #f0f1f6;
+    --page-content-txtColor: #171616;
+    --page-content-blockColor: #fff;
+    --icon-color: #f29441;
+    --white: #fff;
+    --black: #333;
+    --blue: #00b9eb;
+    --red: #b1160e;
+    --pink: #f279c8;
+    --purple: #8a33fe;
+    --cyan: #5bb7ea;
+    --ash: #f6b166;
+    --deep-blue: #023059;
+  }
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    outline: none;
+  }
+  ul {
+    list-style: none;
+  }
+  a,
+  button {
+    color: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    background: none;
+  }
+  
+  body {
+    background-color: #f0f8fd;
+  }
+  
+  button:not(:disabled),
+  [type="button"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+  #myDashboardContainer {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+#myDashboardContainer .boxes {
+
+    display: flex;
+}
+
+.dashboard-widget {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.bar-chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Style for the bar chart bars */
+.bar {
+    background-color: #3498db;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.bar:nth-child(1) {
+    background-color: #3498db; /* Blue */
+}
+
+.bar:nth-child(2) {
+    background-color: #2ecc71; /* Green */
+}
+
+.bar:nth-child(3) {
+    background-color: #e74c3c; /* Red */
+}
+
+.bar:nth-child(4) {
+    background-color: #f39c12; /* Yellow/Orange */
+}
+  
+.bar-label {
+    color: #333;
+    margin-right: 10px;
+}
+.dashboard-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+}
+
+.dashboard-widget {
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.line-chart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.line-chart-point {
+    width: 15px;
+    height: 15px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.sales-target-widget {
+    text-align: center;
+}
+
+.sales-target {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2ecc71; /* Green color for positive target achievement */
+}
+
+.sales-target-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.gauge-chart {
+    width: 50%;
+    max-width: 100px;
+    margin: 20px auto;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+
+
+}
+
+.rowcontainer {
+    flex: 1;
+    background-color: #dee7ee;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    
+}
+.chartcontainer {
+    flex: 1;
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px; /* Add margin for better spacing */
+}
+.rowcontainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #de1212;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.left-heading,
+.right-heading {
+    margin: 0;
+}
+
+section {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+.card:hover {
+    background-color: #e44767; /* Change background color on hover */
+    color: #290404; /* Change text color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.rowcontainer:hover {
+    background-color: #509d50; /* Change background color on hover */
+    color: #2c0606; /* Change text color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.grid-container {
+    display: flex;
+}
+
+.grid-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+.barcontainer{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+
+}
+canvas {
+    max-width: 600px;
+    max-height: 500px;
+    height: 300px;
+}
+.progress-bar-container {
+    height: 15px;
+    width: 200px;
+    background-color: #ecf0f1;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%; /* Adjust the width to represent the progress (e.g., 50% for half-filled) */
+    background-color: #3498db; /* Change the color as needed */
+}
+.progress-segment {
+    height: 100%;
+    width: 20%; /* Adjust the width for each segment (e.g., 20% for five segments) */
+    float: left;
+}
+
+.progress-segment:nth-child(1) {
+    background-color: #3498db;
+    width: 30%; /* Color for the first segment */
+}
+
+.progress-segment:nth-child(2) {
+    background-color: #e74c3c;
+    width: 38%; /* Color for the second segment */
+}
+
+.progress-segment:nth-child(3) {
+    background-color: #2ecc71;
+    width: 3%; /* Color for the third segment */
+}
+.kanban-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: 10%;
+
+}
+
+.kanban-column {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.column-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.kanban-card {
+    color: black;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.kanban-card:hover {
+    background-color: pink;
+}
+
+.left-heading,
+.right-heading {
+    margin: 0;
+}
+
+.progress-bar-container {
+    height: 20px;
+    width: 100%;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-segment {
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+@media screen and (max-width: 768px) {
+    .kanban-column {
+        flex-basis: 100%;
+    }
+}
+.kanban-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 16px;
+    background-color: #fff;
+  }
+
+  .price {
+    font-size: 2em;
+    color: #007bff; /* Blue color for price */
+    margin-bottom: 8px;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    
+  }
+
+  .user-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px; /* Rounded pill style */
+    cursor: pointer;
+  }
+
+  .button-primary {
+    background-color: Violet; /* Blue color for primary button */
+    color: #fff;
+  }
+
+  .button-secondary {
+    background-color:MediumSeaGreen; /* Red color for secondary button */
+    color: #fff;
+  }
+  .zoomed-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zoomed-card-content {
+    max-width: 50%;
+    max-height: 50%;
+    overflow: auto;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+
+  
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    </style>
+</head>
+<body>
+     <!-- Navbar start -->
+     <div class="container-fluid fixed-top">
+        <div class="container topbar bg-dark d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-white"></i> <a href="#" class="text-white">123 Street, New York</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-white"></i><a href="#" class="text-white">Email@Example.com</a></small>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="" class="navbar-brand"><h1 class="text-dark display-6">oodoo</h1></a>
+               
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
+                    <div class="navbar-nav mx-auto">
+                        <a href="{% url 'index' %}" class="nav-item nav-link active"> <i class="fas fa-home"></i>
+                          <span>Home</span>
+                        </a>
+          
+                       
+          
+                        <a href="{% url 'home' %}" class="nav-item nav-link"><i class="fas fa-thumbs-up"></i>
+                          <span>Deals</span></a>
+                        <a href="#" class="nav-item nav-link">
+                          <i class="fas fa-chart-bar"></i>
+                          <span>Activity report</span></a>
+                        <div class="nav-item dropdown">
+                            <a href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" data-toggle="dropdown">Log activity</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                
+                                <a href="{% url 'a' %}" class="dropdown-item"><i class="fas fa-bullseye"></i>
+                                  <span>Sales target</span>
+                                </a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-chart-bar"></i>
+                                  <span>Activity report</span></a>
+                                <a href="#" class="dropdown-item"><i class="fas fa-chart-line"></i>
+                                  <span>Sales performance</span>
+                                </a>
+                  
+                            </div>
+                        </div>
+                        <a href="#" class="nav-item nav-link"><i class="fas fa-envelope"></i>
+                          <span>contact</span></a>
+                    </div>
+                    <div class="d-flex m-4 me-0"id="navbarSupportedContent">
+                        <button class="btn-search btn border border-dark btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-dark"></i></button>
+                        <a href="#" class="position-relative me-5 my-auto icon-spacing">
+                            <i class="fa fa-bell fa-2x text-dark"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        </a>
+                        <a href="#" class="my-auto icon-spacing">
+                            <i class="fas fa-user fa-2x text-dark"></i>
+    
+                        </a>
+                        
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+<div class="kanban-board">
+    <div class="kanban-column column">
+        <div class="column-header"> <header>
+            <h2 class="left-heading">new</h2>
+            <h2 class="right-heading"><button>+</button></h2>
+        </header>
+        <div class="progress-bar-container">
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div></div>
+        <div class="kanban-card border-dark"draggable="true" onclick="showZoomedCard()">
+            <div class="card-body">
+            <h5 class="card-title">office design project 
+                </h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$24.00</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon">                        <i class="fas fa-user fa-2x text-dark"></i>
+                </span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">design</button>
+            </div></a>
+          </div></div>
+        <div class="kanban-card border-danger" draggable="true" onclick="showZoomedCard()">
+            <div class="card-body">
+            <h5 class="card-title">need 20 desks</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$60,000</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9734;&#9734;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">product</button>
+            </div></a>
+          </div></div>
+    </div>
+
+    <div class="kanban-column column">
+        <div class="column-header"><div class="column-header"> <header>
+            <h2 class="left-heading">Qualified</h2>
+            <h2 class="right-heading"><button>+</button></h2>
+        </header>
+        <div class="progress-bar-container">
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div></div></div>
+        <div class="kanban-card border-warning"draggable="true" onclick="showZoomedCard()"><div class="card-body">
+            <h5 class="card-title">interest in your  product</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$99.99</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">product</button>
+                <button class="button button-secondary">info</button>
+            </div></a>
+          </div></div>
+        <div class="kanban-card border-success"draggable="true" onclick="showZoomedCard()"><div class="card-body">
+            <h5 class="card-title">dellaPC:10 computer desks</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$35,000</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9734;&#9734;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">information</button>
+                <button class="button button-secondary">training</button>
+            </div></a>
+          </div></div>
+    </div>
+    <div class="kanban-column column">
+        <div class="column-header"><div class="column-header"> <header>
+            <h2 class="left-heading">Proposition</h2>
+            <h2 class="right-heading"><button>+</button></h2>
+        </header>
+        <div class="progress-bar-container">
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div></div></div>
+        <div class="kanban-card border-info" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+            <h5 class="card-title">open space design</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$11.00</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-secondary">Design</button>
+            </div></a>
+          </div></div>
+        <div class="kanban-card border-primary" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+            <h5 class="card-title">office design and architecture</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$9000</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">Design</button>
+                <button class="button button-secondary">Consulting</button>
+            </div></a>
+          </div></div>
+    </div>
+
+    <div class="kanban-column column">
+        <div class="column-header"><div class="column-header"> <header>
+            <h2 class="left-heading">won</h2>
+            <h2 class="right-heading"><button>+</button></h2>
+        </header>
+        <div class="progress-bar-container">
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+        </div></div></div>
+        <div class="kanban-card border-danger" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+            <h5 class="card-title">access to online
+                </h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$20099</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary" onclick="archiveCard(this)">Archive</button>
+
+                <button class="button button-primary">Services</button>
+            </div></a>
+          </div></div>
+        <div class="kanban-card border-warning" draggable="true"><div class="card-body">
+            <h5 class="card-title">costomizable DESK</h5>
+            <h6 class="card-subtitle mb-2 text-muted">                
+                <div class="price">$15.99</div>
+            </h6>
+            <p class="card-text"><div class="rating">
+                <span class="user-icon"><i class="fas fa-user fa-2x text-dark"></i></span>
+                <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            </div></p>
+            <a href="#" class="card-link"><div class="buttons">
+                <button class="button button-primary">product</button>
+                <button class="button button-secondary">Details</button>
+                <button class="button button-primary" onclick="archiveCard(this)">Archive</button>
+
+            </div></a>
+          </div></div>
+    </div>
+</div>
+<h1> archiveCard</h1>
+<div class="archive-container" id="archive-container">
+    <!-- Archived cards will be displayed here -->
+</div>
+<div class="zoomed-card" onclick="hideZoomedCard()">
+    <div class="zoomed-card-content">
+      <!-- Content of the zoomed card goes here -->
+      <div class="box bg-deep-blue">
+        <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+            Send Email
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+              />
+            </svg>
+            Send SMS
+          </a>
+      </div>
+     
+    </div>
+  </div>
+  <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                        <h1 class="text-primary mb-0">oodoo</h1>
+                        <p class="text-secondary mb-0">CRM Front end design</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative mx-auto">
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex justify-content-end pt-3">
+                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+    function archiveCard(button) {
+        const card = button.closest('.kanban-card');
+        const archivedCard = card.cloneNode(true);
+        archivedCard.removeAttribute('draggable');
+
+        // Save the archived card information to local storage
+        saveArchivedCard(archivedCard);
+
+        // Remove the original card from the Kanban board
+        card.remove();
+
+        // Save the updated card information
+        saveCardInfo();
+
+        // Redirect to archive.html after archiving
+        var url="{% url 'a' %}";
+
+        window.location.href = url;
+    }
+
+    function saveArchivedCard(archivedCard) {
+        const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+        archivedCards.push(archivedCard.outerHTML);
+        localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+    }
+</script>
+</body>
+</html>
