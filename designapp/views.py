@@ -9,3 +9,5 @@ def archived(request):
     return render(request,'archived.html')
 def a(request):
     return render(request,'archive.html')
+def swipe(request):
+    return render(request,'swipe.html')

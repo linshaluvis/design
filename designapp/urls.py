@@ -6,6 +6,8 @@ urlpatterns = [
     path('home',views.home,name='home'),
     path('archived',views.archived,name='archived'),
     path('a',views.a,name='a'),
+    path('swipe',views.swipe,name='swipe'),
+
 
 
 

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -10,6 +12,8 @@
      <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 
     <meta charset="UTF-8">
@@ -1009,7 +1013,7 @@ canvas {
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div></div>
-        <div class="kanban-card border-dark"draggable="true" onclick="showZoomedCard()">
+        <div class="kanban-card border-dark"draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)">
             <div class="card-body">
             <h5 class="card-title">office design project 
                 </h5>
@@ -1025,7 +1029,7 @@ canvas {
                 <button class="button button-primary">design</button>
             </div></a>
           </div></div>
-        <div class="kanban-card border-danger" draggable="true" onclick="showZoomedCard()">
+        <div class="kanban-card border-danger" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)">
             <div class="card-body">
             <h5 class="card-title">need 20 desks</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
@@ -1053,7 +1057,7 @@ canvas {
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div></div></div>
-        <div class="kanban-card border-warning"draggable="true" onclick="showZoomedCard()"><div class="card-body">
+        <div class="kanban-card border-warning"draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">interest in your  product</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$99.99</div>
@@ -1067,7 +1071,7 @@ canvas {
                 <button class="button button-secondary">info</button>
             </div></a>
           </div></div>
-        <div class="kanban-card border-success"draggable="true" onclick="showZoomedCard()"><div class="card-body">
+        <div class="kanban-card border-success"draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">dellaPC:10 computer desks</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$35,000</div>
@@ -1094,7 +1098,7 @@ canvas {
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div></div></div>
-        <div class="kanban-card border-info" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+        <div class="kanban-card border-info" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">open space design</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$11.00</div>
@@ -1107,7 +1111,7 @@ canvas {
                 <button class="button button-secondary">Design</button>
             </div></a>
           </div></div>
-        <div class="kanban-card border-primary" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+        <div class="kanban-card border-primary" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">office design and architecture</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$9000</div>
@@ -1135,7 +1139,7 @@ canvas {
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div></div></div>
-        <div class="kanban-card border-danger" draggable="true" onclick="showZoomedCard()"><div class="card-body">
+        <div class="kanban-card border-danger" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">access to online
                 </h5>
             <h6 class="card-subtitle mb-2 text-muted">                
@@ -1146,12 +1150,11 @@ canvas {
                 <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
             </div></p>
             <a href="#" class="card-link"><div class="buttons">
-                <button class="button button-primary" onclick="archiveCard(this)">Archive</button>
 
                 <button class="button button-primary">Services</button>
             </div></a>
           </div></div>
-        <div class="kanban-card border-warning" draggable="true"><div class="card-body">
+        <div class="kanban-card border-warning" draggable="true"onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">costomizable DESK</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$15.99</div>
@@ -1163,63 +1166,12 @@ canvas {
             <a href="#" class="card-link"><div class="buttons">
                 <button class="button button-primary">product</button>
                 <button class="button button-secondary">Details</button>
-                <button class="button button-primary" onclick="archiveCard(this)">Archive</button>
 
             </div></a>
           </div></div>
     </div>
 </div>
-<h1> archiveCard</h1>
-<div class="archive-container" id="archive-container">
-    <!-- Archived cards will be displayed here -->
-</div>
-<div class="zoomed-card" onclick="hideZoomedCard()">
-    <div class="zoomed-card-content">
-      <!-- Content of the zoomed card goes here -->
-      <div class="box bg-deep-blue">
-        <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <polyline points="3 7 12 13 21 7" />
-            </svg>
-            Send Email
-          </a>
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
-              />
-            </svg>
-            Send SMS
-          </a>
-      </div>
-     
-    </div>
-  </div>
+
   <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
     <div class="container py-5">
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
@@ -1256,33 +1208,62 @@ canvas {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
 
-    function archiveCard(button) {
-        const card = button.closest('.kanban-card');
-        const archivedCard = card.cloneNode(true);
-        archivedCard.removeAttribute('draggable');
-
-        // Save the archived card information to local storage
-        saveArchivedCard(archivedCard);
-
-        // Remove the original card from the Kanban board
-        card.remove();
-
-        // Save the updated card information
-        saveCardInfo();
-
-        // Redirect to archive.html after archiving
-        var url="{% url 'a' %}";
-
-        window.location.href = url;
+  <script>
+    let startX = 0;
+    let startY = 0;
+    let threshold = 100; // Minimum swipe distance required to trigger the archive action
+  
+    function startSwipe(event) {
+        startX = event.clientX || event.touches[0].clientX;
+        startY = event.clientY || event.touches[0].clientY;
+        document.addEventListener('mousemove', moveSwipe);
+        document.addEventListener('mouseup', endSwipe);
+        document.addEventListener('touchmove', moveSwipe);
+        document.addEventListener('touchend', endSwipe);
     }
-
-    function saveArchivedCard(archivedCard) {
-        const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
-        archivedCards.push(archivedCard.outerHTML);
-        localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+  
+    function moveSwipe(event) {
+        event.preventDefault(); // Prevent scrolling while swiping
     }
+  
+    function endSwipe(event) {
+        let endX = event.clientX || event.changedTouches[0].clientX;
+        let endY = event.clientY || event.changedTouches[0].clientY;
+        let deltaX = endX - startX;
+        let deltaY = endY - startY;
+  
+        // Check if the swipe was mainly horizontal and greater than the threshold
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
+            if (deltaX > 0) {
+                archiveCard(event.target); // Swipe right to archive
+            }
+        }
+  
+        document.removeEventListener('mousemove', moveSwipe);
+        document.removeEventListener('mouseup', endSwipe);
+        document.removeEventListener('touchmove', moveSwipe);
+        document.removeEventListener('touchend', endSwipe);
+    }
+  
+    function archiveCard(card) {
+        // Implement archiving logic here
+        card.style.display = "none"; // For demonstration, hide the card
+        alert("Card archived!");
+    }
+  
+    function handleKeyPress(event) {
+        let key = event.key;
+        if (key === 'ArrowRight') {
+            archiveCard(event.target); // Swipe right to archive
+        }
+    }
+  
+    // Event listener to start swipe when card is clicked and dragged
+    document.querySelectorAll('.kanban-card').forEach(card => {
+        card.addEventListener('mousedown', startSwipe);
+        card.addEventListener('touchstart', startSwipe);
+    });
 </script>
 </body>
 </html>
