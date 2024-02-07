@@ -866,9 +866,9 @@ canvas {
     </style>
 </head>
 <body>
-   <!-- Navbar start -->
-   <div class="container-fluid fixed-top">
-    <div class="container topbar bg-dark d-none d-lg-block">
+  <!-- Navbar start -->
+  <div class="container-fluid fixed-top">
+    <div class="container topbar  d-none d-lg-block"style="color:#fff;background:#50394c">
         <div class="d-flex justify-content-between">
             <div class="top-info ps-2">
                 <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-white"></i> <a href="#" class="text-white">123 Street, New York</a></small>
@@ -886,17 +886,21 @@ canvas {
 
             <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
                 <div class="navbar-nav mx-auto">
-                    <a href="{% url 'index' %}" class="nav-item nav-link "> <i class="fas fa-home"></i>
+                    <a href="{% url 'index' %}" class="nav-item nav-link active"> <i class="fas fa-home"></i>
                       <span>Home</span>
                     </a>
-                    <a href="{% url 'a' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
-                        <span>archive</span>
-                      </a>
       
                    
       
-                    <a href="{% url 'home' %}" class="nav-item nav-link"><i class="fas fa-thumbs-up"></i>
-                      <span>Deals</span></a>
+                    
+                      <a href="{% url 'home' %}" class="nav-item nav-link"><i class="fas fa-thumbs-up"></i>
+                        <span>Deals</span></a>
+                        <a href="{% url 'a' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
+                          <span>archive</span>
+                        </a>
+                        <a href="#" class="nav-item nav-link"><i class="fas fa-envelope"></i>
+                            <span>Task</span></a>
+                       
                     <a href="#" class="nav-item nav-link">
                       <i class="fas fa-chart-bar"></i>
                       <span>Activity report</span></a>
@@ -904,7 +908,7 @@ canvas {
                         <a href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" data-toggle="dropdown">Log activity</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             
-                            <a href="#" class="dropdown-item"><i class="fas fa-bullseye"></i>
+                            <a href="{% url 'a' %}" class="dropdown-item"><i class="fas fa-bullseye"></i>
                               <span>Sales target</span>
                             </a>
                             <a href="#" class="dropdown-item"><i class="fas fa-chart-bar"></i>
@@ -915,8 +919,7 @@ canvas {
               
                         </div>
                     </div>
-                    <a href="{% url 'archived' %}" class="nav-item nav-link"><i class="fas fa-envelope"></i>
-                      <span>contact</span></a>
+                    
                 </div>
                 <div class="d-flex m-4 me-0"id="navbarSupportedContent">
                     <button class="btn-search btn border border-dark btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-dark"></i></button>
@@ -1558,7 +1561,7 @@ canvas {
             </div>
         </div> -->
 
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container-fluid  text-white-50 footer pt-5 mt-5" style="color:#fff;background:#50394c">
           <div class="container py-5">
               <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
                   <div class="row g-4">

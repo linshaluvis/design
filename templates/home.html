@@ -884,12 +884,12 @@ canvas {
   }
 
   .button-primary {
-    background-color: Violet; /* Blue color for primary button */
+    background-color: #B22222; /* Blue color for primary button */
     color: #fff;
   }
 
   .button-secondary {
-    background-color:MediumSeaGreen; /* Red color for secondary button */
+    background-color:#008000; /* Red color for secondary button */
     color: #fff;
   }
   .zoomed-card {
@@ -913,6 +913,42 @@ canvas {
     border-radius: 8px;
   }
 
+  .kanban-card {
+    width: 220px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.kanban-card h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.kanban-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.kanban-card .button {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.kanban-card .button:hover {
+    background-color: #0056b3;
+}
+
+  
 
   
 
@@ -930,9 +966,9 @@ canvas {
     </style>
 </head>
 <body>
-     <!-- Navbar start -->
-     <div class="container-fluid fixed-top">
-        <div class="container topbar bg-dark d-none d-lg-block">
+      <!-- Navbar start -->
+      <div class="container-fluid fixed-top">
+        <div class="container topbar  d-none d-lg-block"style="color:#fff;background:#50394c">
             <div class="d-flex justify-content-between">
                 <div class="top-info ps-2">
                     <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-white"></i> <a href="#" class="text-white">123 Street, New York</a></small>
@@ -950,20 +986,21 @@ canvas {
     
                 <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
                     <div class="navbar-nav mx-auto">
-                        <a href="{% url 'index' %}" class="nav-item nav-link "> <i class="fas fa-home"></i>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active"> <i class="fas fa-home"></i>
                           <span>Home</span>
                         </a>
-                        <a href="{% url 'a' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
-                            <span>archive</span>
-                          </a>
-                          <a href="{% url 'swipe' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
-                            <span>swipe archive</span>
-                          </a>
           
                        
           
-                        <a href="{% url 'home' %}" class="nav-item nav-link"><i class="fas fa-thumbs-up"></i>
-                          <span>Deals</span></a>
+                        
+                          <a href="{% url 'home' %}" class="nav-item nav-link"><i class="fas fa-thumbs-up"></i>
+                            <span>Deals</span></a>
+                            <a href="{% url 'a' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
+                              <span>archive</span>
+                            </a>
+                            <a href="{% url 'archived' %}" class="nav-item nav-link"><i class="fas fa-envelope"></i>
+                                <span>Task</span></a>
+                           
                         <a href="#" class="nav-item nav-link">
                           <i class="fas fa-chart-bar"></i>
                           <span>Activity report</span></a>
@@ -971,7 +1008,7 @@ canvas {
                             <a href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" data-toggle="dropdown">Log activity</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 
-                                <a href="#" class="dropdown-item"><i class="fas fa-bullseye"></i>
+                                <a href="{% url 'a' %}" class="dropdown-item"><i class="fas fa-bullseye"></i>
                                   <span>Sales target</span>
                                 </a>
                                 <a href="#" class="dropdown-item"><i class="fas fa-chart-bar"></i>
@@ -982,8 +1019,7 @@ canvas {
                   
                             </div>
                         </div>
-                        <a href="{% url 'archived' %}" class="nav-item nav-link"><i class="fas fa-envelope"></i>
-                          <span>contact</span></a>
+                        
                     </div>
                     <div class="d-flex m-4 me-0"id="navbarSupportedContent">
                         <button class="btn-search btn border border-dark btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-dark"></i></button>
@@ -1089,7 +1125,7 @@ canvas {
                 <div class="star-rating">&#9733;&#9733;&#9734;&#9734;&#9734;</div>
             </div></p>
             <a href="#" class="card-link"><div class="buttons">
-                <button class="button button-primary">information</button>
+                <button class="button button-primary">info</button>
                 <button class="button button-secondary">training</button>
                 <button class="button " onclick="archiveCard(this)"><i class="fa fa-archive  text-dark" aria-hidden="true"></i></button>
 
@@ -1133,7 +1169,6 @@ canvas {
             </div></p>
             <a href="#" class="card-link"><div class="buttons">
                 <button class="button button-primary">Design</button>
-                <button class="button button-secondary">Consulting</button>
                 <button class="button " onclick="archiveCard(this)"><i class="fa fa-archive  text-dark" aria-hidden="true"></i></button>
 
             </div></a>
@@ -1233,43 +1268,42 @@ canvas {
      
     </div>
   </div>
-<h1> unarchived</h1>
 
 </div>
 
-<div id="unarchive-container">
-  <!-- Unarchived cards will be added here -->
-</div>
+</div></div>
 
-  <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-    <div class="container py-5">
-        <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
-            <div class="row g-4">
-                <div class="col-lg-3">
-                        <h1 class="text-primary mb-0">oodoo</h1>
-                        <p class="text-secondary mb-0">CRM Front end design</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative mx-auto">
 
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="d-flex justify-content-end pt-3">
-                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-            </div>
-        </div>
-    </div>
+<div class="container-fluid  text-white-50 footer pt-5 mt-5" style="color:#fff;background:#50394c">
+  <div class="container py-5">
+      <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+          <div class="row g-4">
+              <div class="col-lg-3">
+                      <h1 class="text-primary mb-0">oodoo</h1>
+                      <p class="text-secondary mb-0">CRM Front end design</p>
+              </div>
+              <div class="col-lg-6">
+                  <div class="position-relative mx-auto">
+
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="d-flex justify-content-end pt-3">
+                      <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                      <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+          </div>
+      </div>
+  </div>
 </div>
 <!-- Footer End -->
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -1280,8 +1314,7 @@ canvas {
 <script>
     let startX = 0;
     let startY = 0;
-    let threshold = 100; // Minimum swipe distance required to trigger the archive action
-
+    let threshold = 100; 
     function startSwipe(event) {
         startX = event.clientX || event.touches[0].clientX;
         startY = event.clientY || event.touches[0].clientY;
@@ -1292,7 +1325,7 @@ canvas {
     }
 
     function moveSwipe(event) {
-        event.preventDefault(); // Prevent scrolling while swiping
+        event.preventDefault(); 
     }
 
     function endSwipe(event) {
@@ -1301,10 +1334,9 @@ canvas {
         let deltaX = endX - startX;
         let deltaY = endY - startY;
 
-        // Check if the swipe was mainly horizontal and greater than the threshold
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
             if (deltaX > 0) {
-                archiveCard(event.target); // Swipe right to archive
+                archiveCard(event.target); 
             }
         }
 
@@ -1315,8 +1347,7 @@ canvas {
     }
 
     function archiveCard(card) {
-        // Implement archiving logic here
-        card.style.display = "none"; // For demonstration, hide the card
+        card.style.display = "none"; 
         alert("Card archived!");
     }
 
@@ -1333,35 +1364,26 @@ canvas {
         const card = button.closest('.kanban-card');
         const archiveContainer = JSON.parse(localStorage.getItem('archivedCards')) || [];
     
-        // Clone the card for archiving
         const archivedCard = card.cloneNode(true);
     
-        // Remove the draggable attribute from the cloned card
         archivedCard.removeAttribute('draggable');
     
-        // Save the archived card information to local storage
         archiveContainer.push(archivedCard.outerHTML);
         localStorage.setItem('archivedCards', JSON.stringify(archiveContainer));
     
-        // Remove the original card from the Kanban board
         card.remove();
     
-        // Navigate to the archive page
-        var url="{% url 'a' %}";
+        var url="{% url 'swipearchive' %}";
         window.location.href = url;
     }
     document.addEventListener('DOMContentLoaded', function() {
-        // Retrieve the restored card information from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const restoredCardHTML = urlParams.get('restoredCard');
     
-        // Check if restored card information exists
         if (restoredCardHTML) {
-            // Create a container for the restored card
             const restoredCardContainer = document.createElement('div');
             restoredCardContainer.innerHTML = restoredCardHTML;
     
-            // Add the restored card to the container on the different page
             const unarchiveContainer = document.getElementById('unarchived-container');
             unarchiveContainer.appendChild(restoredCardContainer.firstChild);
         }
@@ -1373,7 +1395,6 @@ canvas {
         localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
     }
     
-    // Function to make cards draggable
     function makeCardsDraggable() {
         
         const cards = document.querySelectorAll('.kanban-card');
@@ -1384,7 +1405,7 @@ canvas {
 
             card.addEventListener('dragstart', function(event) {
                 dragged = event.target;
-                event.dataTransfer.setData('text/plain', ''); // necessary for Firefox
+                event.dataTransfer.setData('text/plain', ''); 
                 setTimeout(() => {
                     event.target.style.opacity = 0.5;
                 }, 0);
@@ -1421,12 +1442,10 @@ canvas {
         }
     }
 
-    // Call the function to make cards draggable
     makeCardsDraggable();
     card.addEventListener('dragend', function(event) {
         event.target.style.opacity = '';
     
-        // Save the updated positions after dragging
         saveCardPositions();
     });
     
@@ -1435,7 +1454,6 @@ canvas {
         zoomedCard.style.display = 'flex';
       }
   
-      // Hide the zoomed card
       function hideZoomedCard() {
         const zoomedCard = document.querySelector('.zoomed-card');
         zoomedCard.style.display = 'none';

@@ -11,3 +11,5 @@ def a(request):
     return render(request,'archive.html')
 def swipe(request):
     return render(request,'swipe.html')
+def swipearchive(request):
+    return render(request,'swipearchive.html')
