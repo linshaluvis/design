@@ -961,10 +961,55 @@ canvas {
 .kanban-card .button:hover {
     background-color: #0056b3;
 }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal-content {
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.modal-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    margin: 0 10px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-buttons button.confirm {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal-buttons button.cancel {
+    background-color: #f44336;
+    color: white;
+}
   
 
-      
+.archivecontainer {
+    display: none;
+    width: 200px;
+    height: 100px;
+    background-color: lightgreen;
+    margin: 10px;
+    padding: 10px;
+  }
       
       
       
@@ -1010,6 +1055,7 @@ canvas {
                             <a href="{% url 'a' %}" class="nav-item nav-link "> <i class="fas fa-archive"></i>
                               <span>archive</span>
                             </a>
+                           
                             <a href="{% url 'archived' %}" class="nav-item nav-link"><i class="fas fa-envelope"></i>
                                 <span>Task</span></a>
                            
@@ -1189,7 +1235,7 @@ canvas {
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div></div></div>
-        <div class="kanban-card border-danger" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
+        <div class="kanban-card border-danger" id="card1" draggable="true" onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">access to online
                 </h5>
             <h6 class="card-subtitle mb-2 text-muted">                
@@ -1204,7 +1250,7 @@ canvas {
                 <button class="button button-primary">Services</button>
             </div></a>
           </div></div>
-        <div class="kanban-card border-warning" draggable="true"onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
+        <div class="kanban-card border-warning"id="card1" draggable="true"onmousedown="startSwipe(event)" ontouchstart="startSwipe(event)" tabindex="0" onkeydown="handleKeyPress(event)"><div class="card-body">
             <h5 class="card-title">costomizable DESK</h5>
             <h6 class="card-subtitle mb-2 text-muted">                
                 <div class="price">$15.99</div>
@@ -1221,6 +1267,7 @@ canvas {
           </div></div>
     </div>
 </div>
+
 
   <div class="container-fluid  text-white-50 footer pt-5 mt-5" style="color:#fff;background:#50394c">
     <div class="container py-5">
@@ -1251,64 +1298,35 @@ canvas {
     </div>
 </div>
 <!-- Footer End -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <!-- Modal content -->
+        <p>Are you sure you want to archive this card?</p>
+        <div class="modal-buttons">
+            <button class="confirm" onclick="archiveCard()">Archive</button>
+            <button class="cancel" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
 
-<script>
-    function makeCardsDraggable() {
-        let dragged;
-        const cards = document.querySelectorAll('.kanban-card');
-    
-        cards.forEach(card => {
-            card.draggable = true;
-    
-            card.addEventListener('dragstart', function(event) {
-                dragged = event.target;
-                dragged.classList.add('dragging');
-                event.dataTransfer.setData('text/plain', ''); 
-            });
-    
-            card.addEventListener('dragend', function(event) {
-                dragged.classList.remove('dragging');
-            });
-        });
-    
-        const columns = document.querySelectorAll('.kanban-column');
-    
-        columns.forEach(column => {
-            column.addEventListener('dragover', function(event) {
-                event.preventDefault();
-                const afterElement = getDragAfterElement(column, event.clientY);
-                const container = afterElement ? afterElement.parentNode : column;
-                container.insertBefore(dragged, afterElement);
-            });
-        });
-    
-        function getDragAfterElement(container, y) {
-            const draggableElements = [...container.querySelectorAll('.kanban-card:not(.dragging)')];
-    
-            return draggableElements.reduce((closest, child) => {
-                const box = child.getBoundingClientRect();
-                const offset = y - box.top - box.height / 2;
-                if (offset < 0 && offset > closest.offset) {
-                    return { offset: offset, element: child };
-                } else {
-                    return closest;
-                }
-            }, { offset: Number.NEGATIVE_INFINITY }).element;
-        }
-    }
-</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 
   <script>
     let startX = 0;
 let startY = 0;
 let threshold = 100;
 let draggedElement = null;
+
 
 function startDrag(event) {
     startX = event.clientX || event.touches[0].clientX;
@@ -1349,11 +1367,31 @@ function endDrag(event) {
         if (deltaX > 0) {
             // Swipe right animation
             gsap.to('draggedElement', { x: 2000, duration: 0.9, ease: 'power2.out' });
-            archiveCard(draggedElement);
+          
+           
+            if (confirm("Are you sure you want to archive this card?")) {
+                archiveCard(draggedElement);
+                } 
+            else {
+                // User cancelled, so close the modal
+                closeModal();
+            }
+            
+            
 
         } 
     }
 }
+
+  
+
+function openModal() {
+    document.getElementById('modal').style.display = 'block';
+}
+ function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
 
 function archiveCard(card) {
     console.log('Archiving card:', card);
@@ -1367,42 +1405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.addEventListener('touchstart', startDrag);
     });
 });
-    
-    {% comment %} let startX = 0;
-    let startY = 0;
-    let threshold = 100; 
-  
-    function startSwipe(event) {
-        startX = event.clientX || event.touches[0].clientX;
-        startY = event.clientY || event.touches[0].clientY;
-        document.addEventListener('mousemove', moveSwipe);
-        document.addEventListener('mouseup', endSwipe);
-        document.addEventListener('touchmove', moveSwipe);
-        document.addEventListener('touchend', endSwipe);
-    }
-  
-    function moveSwipe(event) {
-        event.preventDefault(); 
-    }
-  
-    function endSwipe(event) {
-        let endX = event.clientX || event.changedTouches[0].clientX;
-        let endY = event.clientY || event.changedTouches[0].clientY;
-        let deltaX = endX - startX;
-        let deltaY = endY - startY;
-  
-        
-        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
-            if (deltaX > 0) {
-                archiveCard(event.target); 
-            }
-        }
-  
-        document.removeEventListener('mousemove', moveSwipe);
-        document.removeEventListener('mouseup', endSwipe);
-        document.removeEventListener('touchmove', moveSwipe);
-        document.removeEventListener('touchend', endSwipe);
-    } {% endcomment %}
+   
   
     function archiveCard(card) {
         const archiveContainer = JSON.parse(localStorage.getItem('archivedCards')) || [];
